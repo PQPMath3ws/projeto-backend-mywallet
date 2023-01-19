@@ -1,0 +1,32 @@
+{
+  "name": "projeto14-mywallet-back",
+  "version": "1.0.0",
+  "description": "A backend application for MyWallet Driven Project.",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "start": "node ./src/app.js",
+    "start-dev": "nodemon ./src/app.js --inspect"
+  },
+  "keywords": [
+    "api",
+    "nodejs",
+    "node",
+    "javascript",
+    "mongodb",
+    "movimentação"
+  ],
+  "author": "PQPMath3ws",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "joi": "^17.7.0",
+    "mongodb": "^4.13.0",
+    "string-strip-html": "^13.0.6"
+  }
+}
