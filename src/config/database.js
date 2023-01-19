@@ -3,7 +3,9 @@ import { MongoClient } from "mongodb";
 
 dotenv.config();
 
-let mongoConnection = new MongoClient(process.env.DATABASE_URL, { useUnifiedTopology: true });
+const { DATABASE_URL } = process.env;
+
+let mongoConnection = new MongoClient(DATABASE_URL, { useUnifiedTopology: true });
 let db = null;
 
 const openDbConnection = (callback) => {
