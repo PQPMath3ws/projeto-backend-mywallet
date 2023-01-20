@@ -1,6 +1,7 @@
 import cors from "cors";
 import express from "express";
 
+import AllRoutes from "../routes/all.js";
 import MovimentationsRoutes from "../routes/movimentations.js";
 import UserRoutes from "../routes/user.js";
 import { closeDbConnection } from "./database.js";
@@ -26,6 +27,7 @@ function initializeServer() {
 
         app.use(MovimentationsRoutes);
         app.use(UserRoutes);
+        app.use(AllRoutes);
 
         server = app.listen(5000);
     }
