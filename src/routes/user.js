@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 
 import errors from "../const/errors.js";
 import verifyReqConditions from "../middlewares/user.js";
+import verifyUserIsLoggedIn from "../middlewares/movimentations.js";
 import { getDbInstance } from "../config/database.js";
 import { validateUser } from "../schemas/user.js";
 
@@ -48,6 +49,11 @@ router.all("/sign-up", verifyReqConditions, async (req, res) => {
     if (userExists) return res.status(errors[409].code).send(errors[409]);
     await getDbInstance().collection("users").insertOne(user);
     return res.status(201).send({code: 201, message: "user created successfully"});
+});
+
+router.all("/get-infos", verifyUserIsLoggedIn, async (req, res) => {
+    if (req.method !== "GET") return res.status(errors[405].code).send(errors[405]);
+    return res.status(200).send({name: req.user.name});
 });
 
 export default router;
